@@ -17,8 +17,9 @@ export default {
 
     methods: {
     onBtnClick() {
-      this.isPlaying = !this.isPlaying
+      console.log('this', this)
       this.$store.commit('setPageTheme')
+      this.isPlaying = !this.isPlaying
     }
   },
 }
@@ -57,7 +58,7 @@ body {
   font-weight: bold;
   font-size: 0.6rem;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-  transition: all .2s ease-in-out .2s;
+  transition: all .1s ease-in-out .1s;
   background: transparent;
   position: relative;
   z-index: 2;
@@ -90,7 +91,7 @@ body {
   height: 50px;
   z-index: 1;
   background: var(--green);
-  transition: all .5s cubic-bezier(.666, -.666, .2666, 1.666);
+  transition: all .2s cubic-bezier(.666, -.666, .2666, 1.666);
 }
 .toggler.playing .toggler__helper {
   background: var(--red);

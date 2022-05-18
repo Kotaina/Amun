@@ -1,6 +1,7 @@
 <template>
 <div class="page-body" :class="catchTheClass">
   <img alt="Vue logo" src="./assets/logo.png">
+  <span class="page-body__title">Hello World</span>
   <HelloWorld msg="Welcome to Your Vue.js App"/>
 </div>
 </template>
@@ -11,11 +12,16 @@ import HelloWorld from './components/HelloWorld.vue'
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    HelloWorld,
   },
   data() {
     return {
       backgroundColor: () => {this.$store.state.pageColor},
+      // actualSheme: () => {
+      //   if (this.backgroundColor === 'white') {
+      //     import('src/lightColors.scss')
+      //   } 
+      // }
     }
   },
   mounted() {
@@ -61,6 +67,10 @@ body {
 
   &--black { 
     background-color: black;
+  }
+
+  &__title {
+    color: color('green')
   }
 }
 </style>
