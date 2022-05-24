@@ -1,35 +1,46 @@
 <template>
-<div class="page-body" :class="catchTheClass">
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
-</div>
+  <div class="page-body" :class="catchTheClass">
+    <!-- <img alt="Vue logo" src="./assets/logo.png" />
+    <span class="page-body__title">Hello World</span> -->
+    <!-- <HelloWorld msg="Welcome to Your Vue.js App" /> -->
+    <WebSocketPlay />
+  </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+// import HelloWorld from "./components/HelloWorld.vue";
+import WebSocketPlay from "./components/WebSocketPlay.vue";
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
-    HelloWorld
+    // HelloWorld,
+    WebSocketPlay,
   },
   data() {
     return {
-      backgroundColor: () => {this.$store.state.pageColor},
-    }
+      backgroundColor: () => {
+        this.$store.state.pageColor;
+      },
+      // actualSheme: () => {
+      //   if (this.backgroundColor === 'white') {
+      //     import('src/lightColors.scss')
+      //   }
+      // }
+    };
   },
   mounted() {
-    this.backgroundColor = this.$store.state.pageColor
+    this.backgroundColor = this.$store.state.pageColor;
   },
 
   computed: {
     catchTheClass() {
-      const base = 'page-body'
-      return base + `--${this.$store.state.pageColor}` 
-      // return base + `--${this.backgroundColor}` 
-    }
+      const base = "page-body";
+      return base + `--${this.$store.state.pageColor}`;
+      // return base + `--${this.backgroundColor}`
+    },
   },
-}
+};
 </script>
 
 <style lang="scss">
@@ -59,8 +70,12 @@ body {
     margin-bottom: 30px;
   }
 
-  &--black { 
+  &--black {
     background-color: black;
+  }
+
+  &__title {
+    color: color("green");
   }
 }
 </style>
